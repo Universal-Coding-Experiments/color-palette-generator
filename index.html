@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <title>Color Palette Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="app">
+        <header class="topbar">
+            <h1>Color Palette Generator</h1>
+            <div class="controls-inline">
+                <label class="small">Model
+                    <select id="modelSelect" class="select">
+                        <option value="random">Random</option>
+                        <option value="analogous">Analogous</option>
+                        <option value="complementary">Complementary</option>
+                        <option value="triadic">Triadic</option>
+                        <option value="monochrome">Monochrome</option>
+                    </select>
+                </label>
+
+                <label class="small">Size
+                    <input id="sizeRange" type="range" min="2" max="8" value="5" />
+                </label>
+
+                <button id="generateBtn" class="btn primary">Generate</button>
+
+                <button id="undoBtn" class="btn">Undo</button>
+                <button id="redoBtn" class="btn">Redo</button>
+            </div>
+        </header>
+
+        <section class="palette-area">
+            <div>
+                <div id="paletteGrid" class="palette-grid" aria-live="polite"></div>
+
+                <div class="actions-below">
+                    <button id="copyAll" class="btn">Copy All</button>
+                    <button id="savePalette" class="btn">Save</button>
+                    <button id="shareBtn" class="btn">Share</button>
+                    <button id="exportJson" class="btn secondary">Export JSON</button>
+                    <button id="exportPng" class="btn secondary">Export PNG</button>
+                </div>
+
+                <div class="muted small" style="margin-top:10px">Tip: click a swatch to copy. Lock a swatch to keep it
+                    when regenerating.</div>
+            </div>
+
+            <aside class="preview-panel">
+                <div class="preview-swatch" id="hoverPreview">
+                    <div class="swatch-sample" id="hoverColor"></div>
+                    <div class="swatch-info">
+                        <div id="hoverHex">#FFFFFF</div>
+                        <div id="hoverContrast" class="muted">Contrast: —</div>
+                    </div>
+                </div>
+
+                <div class="gradient-preview">
+                    <div class="muted">Gradient preview</div>
+                    <div id="gradientBar" class="gradient-bar"></div>
+                </div>
+
+                <div class="mockups">
+                    <div class="muted">Theme mockups</div>
+                    <div class="mockup-card">
+                        <div class="mockup-header">Header</div>
+                        <div class="mockup-body">
+                            <button class="mockup-btn">Primary</button>
+                            <div class="mockup-box">Card</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="saved-list">
+                    <div class="muted">Saved palettes</div>
+                    <ul id="savedPalettes"></ul>
+                </div>
+
+                <div class="muted small" style="margin-top:8px" id="paletteName">Name: —</div>
+            </aside>
+        </section>
+
+        <footer class="footer">
+            <div class="muted">Export PNG uses device pixel ratio for higher quality.</div>
+        </footer>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+    <canvas id="exportCanvas" style="display:none"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

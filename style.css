@@ -1,0 +1,474 @@
+:root {
+    --bg: #0f1720;
+    --card: #0b1220;
+    --muted: #9aa4b2;
+    --accent: #ff6b6b;
+    --glass: rgba(255, 255, 255, 0.06);
+    --radius: 10px;
+    --gap: 12px;
+    --max-width: 1100px;
+    --mockup-bg: #0b1220;
+    --ui-font-size: 14px;
+    --ui-line-height: 1.35;
+    --touch-size: 44px;
+}
+
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+    background: linear-gradient(180deg, var(--bg), #071022);
+    color: #fff;
+    -webkit-font-smoothing: antialiased
+}
+
+.app {
+    max-width: var(--max-width);
+    margin: 16px auto;
+    padding: 14px;
+    background: linear-gradient(180deg, var(--card), #071022);
+    border-radius: var(--radius);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6)
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px
+}
+
+.topbar h1 {
+    font-size: 18px;
+    margin: 0
+}
+
+.controls-inline {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.select,
+.select-light,
+select {
+    background: #fff;
+    color: #111;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: var(--ui-font-size);
+    min-width: 120px;
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #111;
+}
+
+select option {
+    color: #111;
+    background: #fff;
+}
+
+input[type="range"] {
+    background: transparent;
+    border: 1px solid var(--glass);
+    color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    width: 120px
+}
+
+.btn {
+    background: transparent;
+    border: 1px solid var(--glass);
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: var(--ui-font-size);
+    min-height: var(--touch-size)
+}
+
+.btn.primary {
+    background: var(--accent);
+    border: none;
+    color: #111;
+    font-weight: 600
+}
+
+.btn.secondary {
+    opacity: 0.95
+}
+
+.small {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px
+}
+
+
+.palette-area {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 16px;
+    align-items: start
+}
+
+.palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px
+}
+
+.palette-swatch {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 120px;
+    border: 1px solid rgba(255, 255, 255, 0.03)
+}
+
+.swatch-top {
+    flex: 1
+}
+
+.swatch-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.18)
+}
+
+.hex {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 13px
+}
+
+.controls-row {
+    display: flex;
+    gap: 8px;
+    align-items: center
+}
+
+.lock-btn {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    min-width: 36px
+}
+
+.copy-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 12px;
+    min-width: 48px
+}
+
+
+.preview-panel {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--glass);
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.preview-swatch {
+    display: flex;
+    gap: 10px;
+    align-items: center
+}
+
+.swatch-sample {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06)
+}
+
+.swatch-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+}
+
+.gradient-bar {
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background: linear-gradient(90deg, #fff, #000)
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap
+}
+
+.saved-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0;
+    max-height: 220px;
+    overflow: auto
+}
+
+.saved-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    margin-bottom: 6px
+}
+
+.saved-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.04)
+}
+
+
+.mockups {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.mockup-card {
+    background: var(--mockup-bg);
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.03)
+}
+
+.mockup-header {
+    height: 36px;
+    border-radius: 6px;
+    background: var(--color-1, #333);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-weight: 600
+}
+
+.mockup-body {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding-top: 10px
+}
+
+.mockup-btn {
+    background: var(--color-2, #555);
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px
+}
+
+.mockup-box {
+    background: var(--color-3, #222);
+    padding: 10px;
+    border-radius: 6px;
+    color: #fff
+}
+
+
+.footer {
+    margin-top: 12px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px
+}
+
+.toast {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 18px;
+    background: #111;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    z-index: 999
+}
+
+.hidden {
+    display: none
+}
+
+
+@media (max-width:980px) {
+    :root {
+        --ui-font-size: 15px
+    }
+
+    .app {
+        margin: 10px;
+        padding: 12px
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px
+    }
+
+    .controls-inline {
+        width: 100%;
+        justify-content: space-between
+    }
+
+    .palette-area {
+        grid-template-columns: 1fr;
+        gap: 12px
+    }
+
+    .preview-panel {
+        order: 2
+    }
+
+    .palette-grid {
+        order: 1
+    }
+
+    .saved-list ul {
+        max-height: 140px
+    }
+
+    .mockup-card {
+        padding: 8px
+    }
+
+    .swatch-top {
+        min-height: 90px
+    }
+
+    .swatch-bottom {
+        padding: 8px
+    }
+
+    .hex {
+        font-size: 14px
+    }
+
+    .btn {
+        padding: 10px 12px;
+        min-height: var(--touch-size)
+    }
+
+    .controls-row .lock-btn,
+    .controls-row .copy-btn {
+        padding: 8px;
+        min-width: 44px
+    }
+}
+
+
+@media (max-width:520px) {
+    :root {
+        --ui-font-size: 15px
+    }
+
+    .topbar h1 {
+        font-size: 16px
+    }
+
+    .controls-inline {
+        gap: 6px
+    }
+
+    .select {
+        min-width: 110px
+    }
+
+    input[type="range"] {
+        width: 100px
+    }
+
+    .palette-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px
+    }
+
+    .palette-swatch {
+        min-height: 100px
+    }
+
+    .swatch-top {
+        min-height: 72px
+    }
+
+    .swatch-sample {
+        width: 56px;
+        height: 56px
+    }
+
+    .gradient-bar {
+        height: 28px
+    }
+
+    .saved-list ul {
+        max-height: 120px
+    }
+
+    .mockup-header {
+        height: 32px
+    }
+
+    .mockup-btn {
+        padding: 6px 10px
+    }
+
+    .toast {
+        bottom: 12px;
+        padding: 8px 10px
+    }
+}
+
+
+button:focus,
+.copy-btn:focus,
+.lock-btn:focus,
+select:focus,
+input[type="range"]:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.08);
+    outline-offset: 2px;
+}
+
+
+.saved-item .btn.small {
+    font-size: 12px;
+    padding: 6px 8px;
+}
